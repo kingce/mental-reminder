@@ -1,9 +1,9 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { ImageBackground, View, Text } from "react-native";
 import styles from './styles';
 
 
-const Profile = (props) => { 
+const ProfileScreen = (props) => { 
     return (
         <View>
             <ImageBackground 
