@@ -1,6 +1,12 @@
 # mental-reminder
 Class project for CSCI 436 - Technology for Social Good
 
+## TODO:
+- [ ] Make a cool app
+
+
+## Resources 
+Post helpful resources or tutorials here
 
 ## Getting started for devs
 
@@ -29,6 +35,7 @@ also look into React Native Vector icons https://github.com/oblador/react-native
 
 
 IM USING expo-google-fonts TO GET THE FONTS WE NEED IDK IF THIS IS RIGHT
+sike idiot use fontawesome instead https://github.com/FortAwesome/react-native-fontawesome#installation
 
 
 

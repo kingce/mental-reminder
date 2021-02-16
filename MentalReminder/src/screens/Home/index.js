@@ -1,9 +1,17 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, ImageBackground, View, Text } from "react-native";
+//import { SwipeListView } from 'react-native-swipe-list-view';
 import styles from './styles';
+import Reminder from './../../components/Reminder';
+
+import reminders from './../../../assets/data/reminders.js';
+
+const reminder1 = reminders[0];
+const reminder2 = reminders[1];
 
 const HomeScreen = (props) => { 
     return ( 
+
         <View>
 
             <ImageBackground
@@ -12,6 +20,7 @@ const HomeScreen = (props) => {
             >
 
             </ImageBackground>
+
             <View style={styles.headerText}>
                 <Text style={styles.h1}>Hey, USER!</Text>
                 <Text style={styles.p}>Here are your reminders.</Text>
@@ -19,7 +28,11 @@ const HomeScreen = (props) => {
 
             <SafeAreaView>
                 <ScrollView style={styles.scrollView}>
-                    <Text style={styles.day}>Today</Text>
+
+                    <Text style={styles.day}>Today </Text>
+
+                    <Reminder reminder={reminder1}/>
+                    <Reminder reminder={reminder2}/>
                     
                 </ScrollView>
             </SafeAreaView>
