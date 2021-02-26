@@ -13,7 +13,7 @@ const styles = StyleSheet.create({
 
     headerText: { 
         marginLeft: 30,
-        marginTop: 40,
+        marginTop: 20,
         paddingBottom: 30,
     },
     h1: { 
@@ -23,12 +23,12 @@ const styles = StyleSheet.create({
 
     day: { 
         marginLeft: 30,
-        marginTop: 50,
+        marginTop: 20,
         fontSize: 45,
     },
 
     p: { 
-        paddingTop: 20,
+        paddingTop: 15,
         fontSize: 30,
     },
     scrollView: { 
