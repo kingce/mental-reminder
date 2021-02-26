@@ -24,7 +24,50 @@ const styles = StyleSheet.create({
         fontSize: 17,
         paddingTop: 7,
         marginLeft: 37 
-    }
+    },
+
+    p: { 
+        fontSize: 19,
+        lineHeight: 33.25,
+        paddingTop: 20,
+        paddingBottom: 20
+    },
+
+    numberHighlight: { 
+        color: "#687765",
+        fontSize: 50,
+        fontWeight: 'bold'
+    },
+
+    statHighlight: { 
+        marginTop: 15,
+        marginBottom: 15
+    },
+
+    scene: { 
+        padding: 37,
+        paddingBottom: 90
+    },
+
+    bigText: { 
+        color: "#687765",
+        fontSize: 50,
+    },
+
+    resource: { 
+        marginTop: 15,
+        marginBottom: 15
+    },
+
+    resourceTitle: { 
+        fontWeight: 'bold',
+        fontSize: 20
+    },
+
+    resourceContent: { 
+        fontSize: 19,
+        paddingTop: 7
+    },
 
 
 

@@ -1,7 +1,7 @@
 export default [ 
     {
-        name: 'Test User',
-        completedReminders: 0,
+        name: 'Person',
+        completedReminders: 200,
         uniqueRemindersLogged: 21,
         dateJoined: 'January 2021',
     }
