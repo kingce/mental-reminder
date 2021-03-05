@@ -13,15 +13,44 @@ import {
   DarkTheme as PaperDarkTheme 
 } from 'react-native-paper';
 
+import AboutScreen from './../screens/Drawer/AboutScreen';
+import PresetScreen from './../screens/Drawer/PresetScreen';
+
 const Stack = createStackNavigator();
-// const Drawer = createDrawerNavigator();
+const Drawer = createDrawerNavigator();
+const HomeStack = createStackNavigator();
+
+const HomeStackScreen = ({navigation}) => (
+    <HomeStack.Navigator screenOptions={{
+        headerTintColor: '#fff',
+        headerTitleStyle:{
+            fontWeight: 'bold'
+        }
+    }}>
+       <HomeStack.Screen name = "Home" component={HomeTabNavigator} options={{
+           headerLeft: () => (
+               <Icon.Button name= "ios-menu" size={25}
+               options={() => {navigation.openDrawer()}}
+               ></Icon.Button>
+           )
+       }}/> 
+    </HomeStack.Navigator>
+);
 
 const Router = (props) => { 
     return (
         <NavigationContainer>
-            <Stack.Navigator>
+            {/* <Stack.Navigator>
                 <Stack.Screen name={"Home"} component={HomeTabNavigator} options={{ headerShown: false}}/>
-            </Stack.Navigator>
+            </Stack.Navigator> */}
+            <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
+                {/* <Drawer.Screen name="HomeDrawer" component={MainTabScreen} /> */}
+                <Drawer.Screen name="Preset" component={PresetScreen} />
+                {/* <Drawer.Screen name="Editdefault" component={EditdefaultScreen} />
+                <Drawer.Screen name="ChangeUserInfo" component={MyprofileScreen} />
+                <Drawer.Screen name="ChangePreferences" component={ChangePreferencesScreen} /> */}
+                <Drawer.Screen name="AboutApp" component={AboutScreen} />
+            </Drawer.Navigator>
         </NavigationContainer>
     );
 };
@@ -31,8 +60,8 @@ export default Router;
 {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
                 <Drawer.Screen name="HomeDrawer" component={MainTabScreen} />
                 <Drawer.Screen name="Preset" component={PresetScreen} />
-                <Drawer.Screen name="Editdefault" component={EditdefualtScreen} />
+                <Drawer.Screen name="Editdefault" component={EditdefaultScreen} />
                 <Drawer.Screen name="ChangeUserInfo" component={MyprofileScreen} />
                 <Drawer.Screen name="ChangePreferences" component={ChangePreferencesScreen} />
-                <Drawer.Screen name="AboutApp" component={MyprofilesScreen} />
+                <Drawer.Screen name="AboutApp" component={AboutScreen} />
             </Drawer.Navigator> */}

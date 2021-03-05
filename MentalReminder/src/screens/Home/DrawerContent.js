@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+// import {ScrollView, Text, View} from 'react-native';
 import {
     useTheme,
     Avatar,
@@ -33,12 +34,12 @@ export function DrawerContent(props) {
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
                     <View style={styles.userInfoSection}>
-                        <View style={{flexDirection:'row',marginTop: 15}}>
+                        {/* <View style={{flexDirection:'row',marginTop: 15}}>
                             <View style={{marginLeft:15, flexDirection:'column'}}>
                                 <Title style={styles.title}>John Doe</Title>
                                 <Caption style={styles.caption}>@j_doe</Caption>
                             </View>
-                        </View>
+                        </View> */}
 
                         <View style={styles.row}>
                             <View style={styles.section}>
@@ -118,7 +119,7 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="About this app"
-                            onPress={() => {props.navigation.navigate('MyprofileScreen')}}
+                            onPress={() => {props.navigation.navigate('AboutScreen')}}
                         />
                     </Drawer.Section>
                 </View>
