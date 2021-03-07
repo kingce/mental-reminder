@@ -23,11 +23,11 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // import{ AuthContext } from '../components/context';
 
-export function DrawerContent(props) {
+const MenuScreen = (props) => { 
 
     const paperTheme = useTheme();
 
-    // const { signOut, toggleTheme } = React.useContext(AuthContext);
+    //const { toggleTheme } = React.useContext(AuthContext);
 
     return(
         <View style={{flex:1}}>
@@ -41,11 +41,11 @@ export function DrawerContent(props) {
                             </View>
                         </View> */}
 
-                        <View style={styles.row}>
+                        {/* <View style={styles.row}>
                             <View style={styles.section}>
                                 <Paragraph style={[styles.paragraph, styles.caption]}>Home</Paragraph>
                             </View>
-                        </View>
+                        </View> */}
                     </View>
 
                     <Drawer.Section style={styles.drawerSection}>
@@ -57,9 +57,9 @@ export function DrawerContent(props) {
                                 </View>
                             </View>
                         </TouchableRipple>
-                        <TouchableRipple onPress={() => {toggleTheme()}}>
+                        <TouchableRipple onPress={() => {toggleNotification()}}>
                                 <View style={styles.preference}>
-                                    <Text>Push notifications</Text>
+                                    <Text>Push Notifications</Text>
                                 </View>
                             </TouchableRipple>
                     </Drawer.Section>
@@ -67,7 +67,7 @@ export function DrawerContent(props) {
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="today" 
+                                name="pencil-plus" 
                                 color={color}
                                 size={size}
                                 />
@@ -78,35 +78,35 @@ export function DrawerContent(props) {
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="view-list" 
+                                name="pencil" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Edit defaults"
-                            onPress={() => {props.navigation.navigate('EditdefaultScreen')}}
+                            onPress={() => {props.navigation.navigate('DefaultScreen')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="account-outline" 
+                                name="account-edit-outline" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Change my user info"
-                            onPress={() => {props.navigation.navigate('MyprofileScreen')}}
+                            onPress={() => {props.navigation.navigate('UserInfoScreen')}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="settings-outline" 
+                                name="square-edit-outline" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Change Preferences"
-                            onPress={() => {props.navigation.navigate('ChangePreferencesScreen')}}
+                            onPress={() => {props.navigation.navigate('PreferenceScreen')}}
                         />
                     </Drawer.Section>
                     <Drawer.Section>
@@ -173,3 +173,5 @@ const styles = StyleSheet.create({
       paddingHorizontal: 16,
     },
   });
+
+  export default MenuScreen;

@@ -1,12 +1,13 @@
 import React from "react";
 import {createBottomTabNavigator} from "@react-navigation/bottom-tabs";
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome'
-import { faHome } from '@fortawesome/free-solid-svg-icons'
+import { faCog, faHome } from '@fortawesome/free-solid-svg-icons'
 import { faUser } from '@fortawesome/free-solid-svg-icons'
 import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
 import HomeScreen from "./../screens/Home";
 import ProfileScreen from "./../screens/Profile";
 import NewScreen from "./../screens/New";
+import MenuScreen from "./../screens/Menu";
 
 const Tab = createBottomTabNavigator();
 
@@ -42,6 +43,16 @@ const HomeTabNavigator = (props) => {
                 options={{
                     tabBarIcon: ({color}) => (
                         <FontAwesomeIcon icon={ faUser } size={30} color={color} />
+                    )
+                }}
+            />
+
+            <Tab.Screen 
+                name={"Menu"} 
+                component={MenuScreen}
+                options={{
+                    tabBarIcon: ({color}) => (
+                        <FontAwesomeIcon icon={ faCog } size={30} color={color} />
                     )
                 }}
             />
