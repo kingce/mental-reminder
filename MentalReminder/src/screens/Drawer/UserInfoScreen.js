@@ -4,11 +4,11 @@ import { View, Text, Button, StyleSheet } from 'react-native';
 const UserInfoScreen = () => {
     return (
       <View style={styles.container}>
-        <Text>UserInfo Screen</Text>
-        <Button
+        <Text>User Info Screen</Text>
+        {/* <Button
           title="Click Here"
           onPress={() => alert('Button Clicked!')}
-        />
+        /> */}
       </View>
     );
 };

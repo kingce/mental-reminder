@@ -5,10 +5,10 @@ const PreferenceScreen = () => {
     return (
       <View style={styles.container}>
         <Text>Preference Screen</Text>
-        <Button
+        {/* <Button
           title="Click Here"
           onPress={() => alert('Button Clicked!')}
-        />
+        /> */}
       </View>
     );
 };

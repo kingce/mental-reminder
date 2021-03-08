@@ -73,7 +73,7 @@ export function MenuScreen(props) {
                                 />
                             )}
                             label="Edit defaults"
-                            onPress={() => {props.navigation.navigate('EditDefault', {
+                            onPress={() => {props.navigation.navigate('Default', {
                                 screen: 'DefaultScreen'})}}
                         />
                         <DrawerItem 
@@ -111,8 +111,8 @@ export function MenuScreen(props) {
                                 />
                             )}
                             label="About this app"
-                            onPress={() => {props.navigation.navigate('AboutApp', {
-                                screen: 'AboutScreen'})}}
+                            onPress={() => {props.navigation.navigate('EditDefault', {
+                                screen: 'AboutAppScreen'})}}
                         />
                     </Drawer.Section>
                 </View>

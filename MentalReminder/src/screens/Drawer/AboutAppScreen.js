@@ -15,7 +15,7 @@ export default AboutAppScreen;
 
 // const DefaultScreen = () => {
 //     return (
-//       <View style={styles.container}>
+//       <View style={styles.headerText}>
 //         <Text>Defaults Screen</Text>
 //         {/* <Button
 //           title="Click Here"

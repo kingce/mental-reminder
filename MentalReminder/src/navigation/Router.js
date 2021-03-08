@@ -15,15 +15,14 @@ import {
 
 import AboutScreen from './../screens/Drawer/AboutScreen';
 import PresetScreen from './../screens/Drawer/PresetScreen';
-import DefaultScreen from './../screens/Drawer/DefaultScreen';
+import AboutAppScreen from '../screens/Drawer/AboutAppScreen';
+import DefaultScreen from '../screens/Drawer/DefaultScreen';
 import UserInfoScreen from './../screens/Drawer/UserInfoScreen';
 import PreferenceScreen from './../screens/Drawer/PreferenceScreen';
-import HomeMenu from '../screens/Menu/index';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
-const AboutStack = createStackNavigator();
 
 const HomeStackScreen = ({navigation}) => (
     <HomeStack.Navigator screenOptions={{
@@ -69,7 +68,17 @@ function Preset() {
 function EditDefault(){
     return(
     <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+        <Drawer.Screen name="About App" component={AboutAppScreen} />
+        {/* <Drawer.Screen name="Edit Default" component={DefaultScreen} /> */}
+    </Drawer.Navigator>
+    )
+}
+
+function Default(){
+    return(
+    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
         <Drawer.Screen name="Edit Default" component={DefaultScreen} />
+        {/* <Drawer.Screen name="Edit Default" component={DefaultScreen} /> */}
     </Drawer.Navigator>
     )
 }
@@ -104,10 +113,10 @@ const Router = (props) => {
             <Stack.Navigator>
                 <Stack.Screen name={"Home"} component={HomeTabNavigator} options={{ headerShown: false}}/>
                 <Stack.Screen name={"Preset"} component={Preset}/>
-                <Stack.Screen name={"EditDefault"} component={EditDefault}/>
+                <Stack.Screen name={"EditDefault"} component={Default}/>
                 <Stack.Screen name={"User Info"} component={ChangeInfo}/>
                 <Stack.Screen name={"Preference"} component={ChangePreference}/>
-                <Stack.Screen name={"About App"} component={AboutApp}/> 
+                <Stack.Screen name={"About App"} component={EditDefault}/> 
             </Stack.Navigator>
             
             {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>
