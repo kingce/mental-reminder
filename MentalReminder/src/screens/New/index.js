@@ -1,11 +1,32 @@
-import React from 'react';
-import { TextInput, ScrollView, ImageBackground, View, Text} from 'react-native';
+import React, { useState } from 'react';
+import DateTimePicker from '@react-native-community/datetimepicker';
+import { Alert, TouchableOpacity, TextInput, ScrollView, ImageBackground, View, Text} from 'react-native';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faBriefcase, faCoffee, faSpa, faPlus } from '@fortawesome/free-solid-svg-icons';
 import styles from './styles';
 
 
 const NewScreen = (props) => { 
+
+    const [text, setText] = useState('');
+
+    const [date, setDate] = useState(new Date(1598051730000));
+    const [mode, setMode] = useState('time');
+
+    const onTimeChange = (event, selectedTime) => { 
+        const currentDate = selectedTime || date;
+        Alert.alert('current date is ' + currentDate);
+    }
+
+    const setReminderName = () => { 
+        Alert.alert('Name set to drink coffee');
+    }
+
+    const addNewReminder = () => { 
+        Alert.alert('name is ' + text + ' and the date is ' + date);
+    }
+
+
     return ( 
         <View>
             <ImageBackground 
@@ -19,10 +40,12 @@ const NewScreen = (props) => {
             <Text style={styles.p}>What do you want to remember?</Text>
             <View style={styles.presetBlock}>
                 <View style={styles.preset}>
+                    <TouchableOpacity onPress={setReminderName}>
                     <Text>
                         <FontAwesomeIcon icon={ faCoffee } size={35} color="black" style={styles.presetIcon} />
                         <Text style={styles.presetText}>   Drink coffee</Text>
                     </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.preset}>
                     <Text>
@@ -51,15 +74,33 @@ const NewScreen = (props) => {
                         editable
                         maxLength={30}
                         style={{ marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', borderWidth: 1, width: 230 }}
-                        value="Custom preset"
+                        placeholder="Custom preset"
                     />
                 </View>
             </View>
 
             <View style={styles.time}>
                 <Text style={styles.p}>When do you want to be reminded?</Text>
-                
+                <DateTimePicker 
+                    testID="dateTimePicker"
+                    value={date}
+                    mode={mode}
+                    is24Hour={false}
+                    display="spinner"
+                    onChange={onTimeChange}
+                />
             </View>
+
+            
+
+            <View style={styles.submit}>
+                <TouchableOpacity onPress={addNewReminder}>
+                    <Text style={styles.button}>Add New Reminder</Text>
+                </TouchableOpacity>
+            </View>
+
+
+
         </ScrollView>
 
         </View>
