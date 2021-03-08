@@ -3,7 +3,7 @@ import {NavigationContainer} from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./../screens/Home";
 import ProfileScreen from "./../screens/Profile";
-import MenuScreen from "./../screens/Menu";
+import MenuScreen from "./../screens/Menu/index";
 import HomeTabNavigator from "./HomeTabNavigator";
 import { View, ActivityIndicator } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -18,6 +18,7 @@ import PresetScreen from './../screens/Drawer/PresetScreen';
 import DefaultScreen from './../screens/Drawer/DefaultScreen';
 import UserInfoScreen from './../screens/Drawer/UserInfoScreen';
 import PreferenceScreen from './../screens/Drawer/PreferenceScreen';
+import HomeMenu from '../screens/Menu/index';
 
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
@@ -52,16 +53,61 @@ const HomeStackScreen = ({navigation}) => (
 //     </AboutStack.Navigator>
 // );
 
+function Preset() {
+    return (
+        <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+                {/* <Drawer.Screen name="HomeDrawer" component={HomeMenu} /> */}
+                <Drawer.Screen name="Preset" component={PresetScreen} /> 
+                {/* <Drawer.Screen name="Editdefault" component={DefaultScreen} /> */}
+                {/* <Drawer.Screen name="ChangeUserInfo" component={UserInfoScreen} />
+                <Drawer.Screen name="ChangePreferences" component={PreferenceScreen} /> 
+                <Drawer.Screen name="AboutApp" component={AboutScreen} /> */}
+        </Drawer.Navigator>
+    )
+}
+
+function EditDefault(){
+    return(
+    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+        <Drawer.Screen name="Edit Default" component={DefaultScreen} />
+    </Drawer.Navigator>
+    )
+}
+
+function ChangeInfo(){
+    return(
+    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+        <Drawer.Screen name="Change User Info" component={UserInfoScreen} />
+    </Drawer.Navigator>
+    )
+}
+
+function ChangePreference(){
+    return(
+    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+        <Drawer.Screen name="Change Preferences" component={PreferenceScreen} />
+    </Drawer.Navigator>
+    )
+}
+
+function AboutApp(){
+    return(
+    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+        <Drawer.Screen name="About App" component={AboutScreen} />
+    </Drawer.Navigator>
+    )
+}
+
 const Router = (props) => { 
     return (
         <NavigationContainer>
             <Stack.Navigator>
                 <Stack.Screen name={"Home"} component={HomeTabNavigator} options={{ headerShown: false}}/>
-                <Stack.Screen name={"Edit Preset"} component={PresetScreen}/>
-                <Stack.Screen name={"Edit Defaults"} component={DefaultScreen}/>
-                <Stack.Screen name={"User Info"} component={UserInfoScreen}/>
-                <Stack.Screen name={"Preference"} component={PreferenceScreen}/>
-                <Stack.Screen name={"About"} component={AboutScreen}/>
+                <Stack.Screen name={"Preset"} component={Preset}/>
+                <Stack.Screen name={"EditDefault"} component={EditDefault}/>
+                <Stack.Screen name={"User Info"} component={ChangeInfo}/>
+                <Stack.Screen name={"Preference"} component={ChangePreference}/>
+                <Stack.Screen name={"About App"} component={AboutApp}/> 
             </Stack.Navigator>
             
             {/* <Drawer.Navigator drawerContent={props => <DrawerContent {...props} />}>

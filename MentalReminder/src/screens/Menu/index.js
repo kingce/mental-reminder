@@ -23,7 +23,7 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // import{ AuthContext } from '../components/context';
 
-const MenuScreen = (props) => { 
+export function MenuScreen(props) { 
 
     const paperTheme = useTheme();
 
@@ -33,22 +33,10 @@ const MenuScreen = (props) => {
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
-                    <View style={styles.userInfoSection}>
-                        {/* <View style={{flexDirection:'row',marginTop: 15}}>
-                            <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>John Doe</Title>
-                                <Caption style={styles.caption}>@j_doe</Caption>
-                            </View>
-                        </View> */}
-
-                        {/* <View style={styles.row}>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>Home</Paragraph>
-                            </View>
-                        </View> */}
-                    </View>
-
-                    <Drawer.Section style={styles.drawerSection}>
+                <Drawer.Section style={styles.drawerSection}>
+                    <Text style={styles.preference}> Menu </Text>
+                </Drawer.Section>
+                    {/* <Drawer.Section style={styles.drawerSection}>
                         <TouchableRipple onPress={() => {toggleTheme()}}>
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
@@ -61,8 +49,8 @@ const MenuScreen = (props) => {
                                 <View style={styles.preference}>
                                     <Text>Push Notifications</Text>
                                 </View>
-                            </TouchableRipple>
-                    </Drawer.Section>
+                        </TouchableRipple>
+                    </Drawer.Section> */}
                     <Drawer.Section>
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -73,7 +61,8 @@ const MenuScreen = (props) => {
                                 />
                             )}
                             label="Edit preset reminders"
-                            onPress={() => {props.navigation.navigate('PresetScreen')}}
+                            onPress={() => {props.navigation.navigate('Preset', {
+                                screen: 'PresetScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -84,7 +73,8 @@ const MenuScreen = (props) => {
                                 />
                             )}
                             label="Edit defaults"
-                            onPress={() => {props.navigation.navigate('DefaultScreen')}}
+                            onPress={() => {props.navigation.navigate('EditDefault', {
+                                screen: 'DefaultScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -95,7 +85,8 @@ const MenuScreen = (props) => {
                                 />
                             )}
                             label="Change my user info"
-                            onPress={() => {props.navigation.navigate('UserInfoScreen')}}
+                            onPress={() => {props.navigation.navigate('ChangeInfo', {
+                                screen: 'UserInfoScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -106,7 +97,8 @@ const MenuScreen = (props) => {
                                 />
                             )}
                             label="Change Preferences"
-                            onPress={() => {props.navigation.navigate('PreferenceScreen')}}
+                            onPress={() => {props.navigation.navigate('ChangePreference', {
+                                screen: 'PreferenceScreen'})}}
                         />
                     </Drawer.Section>
                     <Drawer.Section>
@@ -119,7 +111,8 @@ const MenuScreen = (props) => {
                                 />
                             )}
                             label="About this app"
-                            onPress={() => {props.navigation.navigate('AboutScreen')}}
+                            onPress={() => {props.navigation.navigate('AboutApp', {
+                                screen: 'AboutScreen'})}}
                         />
                     </Drawer.Section>
                 </View>
