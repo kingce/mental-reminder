@@ -6,7 +6,6 @@ import styles from './styles';
 import Reminder from './../../components/Reminder';
 
 import reminders from './../../../assets/data/reminders.js';
-import Drawer from './DrawerContent';
 
 const reminder1 = reminders[0];
 const reminder2 = reminders[1];

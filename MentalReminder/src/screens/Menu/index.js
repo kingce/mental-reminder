@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, StyleSheet } from 'react-native';
+// import {ScrollView, Text, View} from 'react-native';
 import {
     useTheme,
     Avatar,
@@ -22,32 +23,20 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 // import{ AuthContext } from '../components/context';
 
-export function DrawerContent(props) {
+export function MenuScreen(props) { 
 
     const paperTheme = useTheme();
 
-    // const { signOut, toggleTheme } = React.useContext(AuthContext);
+    //const { toggleTheme } = React.useContext(AuthContext);
 
     return(
         <View style={{flex:1}}>
             <DrawerContentScrollView {...props}>
                 <View style={styles.drawerContent}>
-                    <View style={styles.userInfoSection}>
-                        <View style={{flexDirection:'row',marginTop: 15}}>
-                            <View style={{marginLeft:15, flexDirection:'column'}}>
-                                <Title style={styles.title}>John Doe</Title>
-                                <Caption style={styles.caption}>@j_doe</Caption>
-                            </View>
-                        </View>
-
-                        <View style={styles.row}>
-                            <View style={styles.section}>
-                                <Paragraph style={[styles.paragraph, styles.caption]}>Home</Paragraph>
-                            </View>
-                        </View>
-                    </View>
-
-                    <Drawer.Section style={styles.drawerSection}>
+                <Drawer.Section style={styles.drawerSection}>
+                    <Text style={styles.preference}> Menu </Text>
+                </Drawer.Section>
+                    {/* <Drawer.Section style={styles.drawerSection}>
                         <TouchableRipple onPress={() => {toggleTheme()}}>
                             <View style={styles.preference}>
                                 <Text>Dark Theme</Text>
@@ -56,56 +45,60 @@ export function DrawerContent(props) {
                                 </View>
                             </View>
                         </TouchableRipple>
-                        <TouchableRipple onPress={() => {toggleTheme()}}>
+                        <TouchableRipple onPress={() => {toggleNotification()}}>
                                 <View style={styles.preference}>
-                                    <Text>Push notifications</Text>
+                                    <Text>Push Notifications</Text>
                                 </View>
-                            </TouchableRipple>
-                    </Drawer.Section>
+                        </TouchableRipple>
+                    </Drawer.Section> */}
                     <Drawer.Section>
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="today" 
+                                name="pencil-plus" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Edit preset reminders"
-                            onPress={() => {props.navigation.navigate('PresetScreen')}}
+                            onPress={() => {props.navigation.navigate('Preset', {
+                                screen: 'PresetScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="view-list" 
+                                name="pencil" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Edit defaults"
-                            onPress={() => {props.navigation.navigate('EditdefaultScreen')}}
+                            onPress={() => {props.navigation.navigate('Default', {
+                                screen: 'DefaultScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="account-outline" 
+                                name="account-edit-outline" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Change my user info"
-                            onPress={() => {props.navigation.navigate('MyprofileScreen')}}
+                            onPress={() => {props.navigation.navigate('ChangeInfo', {
+                                screen: 'UserInfoScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
-                                name="settings-outline" 
+                                name="square-edit-outline" 
                                 color={color}
                                 size={size}
                                 />
                             )}
                             label="Change Preferences"
-                            onPress={() => {props.navigation.navigate('ChangePreferencesScreen')}}
+                            onPress={() => {props.navigation.navigate('ChangePreference', {
+                                screen: 'PreferenceScreen'})}}
                         />
                     </Drawer.Section>
                     <Drawer.Section>
@@ -118,7 +111,8 @@ export function DrawerContent(props) {
                                 />
                             )}
                             label="About this app"
-                            onPress={() => {props.navigation.navigate('MyprofileScreen')}}
+                            onPress={() => {props.navigation.navigate('EditDefault', {
+                                screen: 'AboutAppScreen'})}}
                         />
                     </Drawer.Section>
                 </View>
@@ -172,3 +166,5 @@ const styles = StyleSheet.create({
       paddingHorizontal: 16,
     },
   });
+
+  export default MenuScreen;
