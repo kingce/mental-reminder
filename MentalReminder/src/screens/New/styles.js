@@ -49,12 +49,26 @@ const styles = StyleSheet.create({
     },
 
     time: { 
-        marginTop: 30
+        marginTop: 30,
+        marginBottom: 300
     },
 
 
     p: { 
         fontSize: 19,
+    },
+
+    button: { 
+        fontSize: 19,
+        marginBottom: 300,
+        borderRadius: 27,
+        paddingTop: 13,
+        paddingBottom: 13,
+        marginRight: 67,
+        marginLeft: 30,
+        textAlign: 'center',
+        borderWidth: 1,
+        borderColor: 'black',
     }
 
 
