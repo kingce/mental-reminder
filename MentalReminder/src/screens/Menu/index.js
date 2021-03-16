@@ -64,7 +64,7 @@ export function MenuScreen(props) {
                             onPress={() => {props.navigation.navigate('Preset', {
                                 screen: 'PresetScreen'})}}
                         />
-                        <DrawerItem 
+                        {/* <DrawerItem 
                             icon={({color, size}) => (
                                 <Icon 
                                 name="pencil" 
@@ -73,7 +73,7 @@ export function MenuScreen(props) {
                                 />
                             )}
                             label="Edit defaults"
-                            onPress={() => {props.navigation.navigate('Default', {
+                            onPress={() => {props.navigation.navigate('EditDefault', {
                                 screen: 'DefaultScreen'})}}
                         />
                         <DrawerItem 
@@ -85,8 +85,8 @@ export function MenuScreen(props) {
                                 />
                             )}
                             label="Change my user info"
-                            onPress={() => {props.navigation.navigate('ChangeInfo', {
-                                screen: 'UserInfoScreen'})}}
+                            onPress={() => {props.navigation.navigate('EditDefault', {
+                                screen: 'AboutAppScreen'})}}
                         />
                         <DrawerItem 
                             icon={({color, size}) => (
@@ -97,9 +97,9 @@ export function MenuScreen(props) {
                                 />
                             )}
                             label="Change Preferences"
-                            onPress={() => {props.navigation.navigate('ChangePreference', {
-                                screen: 'PreferenceScreen'})}}
-                        />
+                            onPress={() => {props.navigation.navigate('EditDefault', {
+                                screen: 'AboutAppScreen'})}}
+                        /> */}
                     </Drawer.Section>
                     <Drawer.Section>
                         <DrawerItem 
