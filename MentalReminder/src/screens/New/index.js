@@ -23,9 +23,21 @@ const NewScreen = (props) => {
     }
 
     const addNewReminder = () => { 
-        Alert.alert('name is ' + text + ' and the date is ' + date);
+        //Alert.alert('name is ' + text + ' and the date is ' + date);
+        props.navigation.navigate('Home', {
+            screen: 'Home'})
+            // onPress={() => {props.navigation.navigate('Menu', {
+            //     screen: 'MenuScreen'})}}
     }
 
+    const addNote = () => {
+        <TextInput style={{marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', borderWidth: 1, width: 230 }}
+            {...props}
+            editable
+            name = "Notes"
+            placeholder = "Add Notes"
+        />
+    }
 
     return ( 
         <View>
@@ -91,10 +103,19 @@ const NewScreen = (props) => {
                 />
             </View>
 
-            
+            <View style={styles.times}>
+                <Text style={styles.p}>Add Note / Description {"\n"}</Text>
+                <TextInput style={{marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', width: 230 }}
+                    {...props}
+                    editable
+                    name = "Notes"
+                    placeholder = "Add Notes"
+                />
+                <Text style={styles.notes}></Text>
+            </View>
 
             <View style={styles.submit}>
-                <TouchableOpacity onPress={addNewReminder}>
+                <TouchableOpacity onPress={addNewReminder} >
                     <Text style={styles.button}>Add New Reminder</Text>
                 </TouchableOpacity>
             </View>

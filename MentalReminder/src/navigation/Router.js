@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./../screens/Home";
 import ProfileScreen from "./../screens/Profile";
 import MenuScreen from "./../screens/Menu/index";
+import Home from "./../screens/Home/index";
 import HomeTabNavigator from "./HomeTabNavigator";
 import { View, ActivityIndicator } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -52,6 +53,14 @@ const HomeStackScreen = ({navigation}) => (
 //         <AboutStack.Screen name = "About" component={AboutScreen}/> 
 //     </AboutStack.Navigator>
 // );
+
+function MainScreen() {
+    return(
+        <MenuStack.Navigator>
+            <MenuStack.Screen component={Home} />
+        </MenuStack.Navigator>
+    )
+}
 
 function Menu(){
     return(
