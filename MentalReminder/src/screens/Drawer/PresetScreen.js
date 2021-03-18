@@ -46,16 +46,11 @@ const PresetScreen = (props) => {
     return (
       // <View style={styles.container}>
       <View style={styles.headerText}>
-          <Text style={styles.h1}>Add New Preset</Text>
+          <Text style={styles.title}>Add New Preset</Text>
           {/* <Text style={styles.p}> Icon: </Text> */}
           {/* <Text style={styles.cen}> <FontAwesomeIcon icon={ faSuitcase } size={50}/> </Text> */}
           <Text style={styles.p}> Name: </Text>
-            <TextInput style={{marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', borderWidth: 1, width: 230 }}
-              {...props}
-              editable
-              name="PresetName" 
-              placeholder="Preset Name"  
-              /> 
+              <InputPreset/>
           <Text style={styles.p}> Icon </Text>
           {/* <Select styles={{
             width: "100px",
@@ -70,15 +65,14 @@ const PresetScreen = (props) => {
     
           <SelectIcon/>
           <Text style={{paddingTop: 200}}>{"\n"} {"\n"} {"\n"} {"\n"}</Text>
-          {/* <Text style={styles.p}> <InputPreset/> </Text> */}
-          {/* <Text style={styles.p}> Go do work </Text> */}
-          {/* <input type="text" name="PresetName" placeholder="Preset Name" /> */}
+          
           <Button
             title="Done"
             onPress={() => {props.navigation.navigate('Menu', {
               screen: 'MenuScreen'})}}
           />
       </View>
+      
       // {' '}
 //<InputPreset/> 
 //<SelectIcon/>
@@ -102,6 +96,10 @@ const PresetScreen = (props) => {
 
 export default PresetScreen;
 
+{/* <Text style={styles.p}> <InputPreset/> </Text> */}
+          {/* <Text style={styles.p}> Go do work </Text> */}
+          {/* <input type="text" name="PresetName" placeholder="Preset Name" /> */}
+
 // const styles = StyleSheet.create({
 //   container: {
 //     flex: 1, 
@@ -109,3 +107,10 @@ export default PresetScreen;
 //     justifyContent: 'center'
 //   },
 // });
+
+{/* <TextInput style={{marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', borderWidth: 1, width: 230 }}
+              {...props}
+              editable
+              name="PresetName" 
+              placeholder="Preset Name"  
+              />  */}

@@ -16,7 +16,7 @@ export const colourOptions = [
   ];
 
   export const iconOptions = [
-    {value: 'bag', label: 'Working'},
+    {value: 'bag', label: 'Working', icon: 'faSuitcase'},
     {value: 'meeting', label: 'Meeting'},
     {value: 'cook', label: 'Cooking'},
     {value: 'relax', label: 'Relaxing'},

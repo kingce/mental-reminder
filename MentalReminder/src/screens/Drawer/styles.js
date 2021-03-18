@@ -11,6 +11,7 @@ const styles = StyleSheet.create({
         marginTop: 20,
         paddingBottom: 30,
         alignItems: 'center', // Used to set Text Component Horizontally Center
+        flex: 1,
     },
     h1: { 
         fontSize: 45,
@@ -30,6 +31,25 @@ const styles = StyleSheet.create({
     },
     scrollView: { 
         width: '100%',
+    },
+
+    title: { 
+        fontSize: 40,
+        fontWeight: 'bold',
+        paddingBottom: 30,
+    },
+
+    button: { 
+        fontSize: 19,
+        marginBottom: 300,
+        borderRadius: 27,
+        paddingTop: 13,
+        paddingBottom: 13,
+        marginRight: 67,
+        marginLeft: 30,
+        textAlign: 'center',
+        borderWidth: 1,
+        borderColor: 'black',
     },
 });
 

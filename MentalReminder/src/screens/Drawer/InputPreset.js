@@ -48,7 +48,8 @@ class InputPreset extends React.Component {
         // <Form onSubmit={this.handleSubmit}>
         //   <Label>
             // Name:
-            <TextInput style={{width: "200px", height: "25px"}}
+            <TextInput style={{width: 200, height: 25}}
+              editable
               name="PresetName" 
               placeholder="Preset Name"  
               value={this.state.value} 
