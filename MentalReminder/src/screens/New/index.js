@@ -23,6 +23,7 @@ const NewScreen = (props) => {
     }
 
     const addNewReminder = () => { 
+
         //Alert.alert('name is ' + text + ' and the date is ' + date);
         props.navigation.navigate('Home', {
             screen: 'Home'})
@@ -38,6 +39,20 @@ const NewScreen = (props) => {
             placeholder = "Add Notes"
         />
     }
+
+        //Alert.alert('name is ' + text + ' and the date is ' + date);  
+     
+    }
+
+    const newItem = (text, date) => {
+        db.transaction(tx => {
+          tx.executeSql('INSERT INTO reminders (name, time_day) values (?, ?)', [text, date],
+            (txObj, resultSet) => this.setState({ data: this.state.data.concat(
+                { id: resultSet.insertId, name: text, time_day: date }) }),
+            (txObj, error) => console.log('Error', error))
+        })
+      }
+
 
     return ( 
         <View>
@@ -115,7 +130,9 @@ const NewScreen = (props) => {
             </View>
 
             <View style={styles.submit}>
-                <TouchableOpacity onPress={addNewReminder}  >
+
+                <TouchableOpacity onPress={addNewReminder} >
+
                     <Text style={styles.button}>Add New Reminder</Text>
                 </TouchableOpacity>
             </View>
