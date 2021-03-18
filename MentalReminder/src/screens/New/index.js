@@ -115,7 +115,7 @@ const NewScreen = (props) => {
             </View>
 
             <View style={styles.submit}>
-                <TouchableOpacity onPress={addNewReminder} >
+                <TouchableOpacity onPress={addNewReminder}  >
                     <Text style={styles.button}>Add New Reminder</Text>
                 </TouchableOpacity>
             </View>

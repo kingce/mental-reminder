@@ -1,5 +1,6 @@
 import DropDownPicker from 'react-native-dropdown-picker';
 import React, { Component } from 'react';
+import {iconOptions} from "./Data"
 
 // import Icon from 'react-native-vector-icons/Feather';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
@@ -34,6 +35,7 @@ render() {
         {value: 'relax', label: 'Traveling', icon: () => <Icon name="airplane" size={18} color="#000" />},
         {value: 'cook', label: 'Cooking', icon: () => <Icon name="bowl" size={18} color="#000" />},
       ]}
+    
     defaultValue={''}
     containerStyle={{height: 40, width: 200}}
     style={{backgroundColor: '#fafafa', width: 200}}
@@ -42,7 +44,7 @@ render() {
     }}
     dropDownStyle={{backgroundColor: '#fafafa'}}
     onChangeItem={item => this.setState({
-        country: item.value
+        icon: item.value
     })}
 />
 );
