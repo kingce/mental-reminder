@@ -6,17 +6,12 @@ const ratio = win.width/1129;
 
 const styles = StyleSheet.create({ 
 
-    image: { 
-        width: win.width,
-        height: 489 * ratio,
-        resizeMode: 'contain',
-    },
-
     headerText: { 
         marginLeft: 30,
         marginTop: 20,
         paddingBottom: 30,
         alignItems: 'center', // Used to set Text Component Horizontally Center
+        flex: 1,
     },
     h1: { 
         fontSize: 45,
@@ -31,15 +26,30 @@ const styles = StyleSheet.create({
 
     p: { 
         paddingTop: 15,
+        paddingBottom: 15,
         fontSize: 30,
     },
     scrollView: { 
         width: '100%',
     },
-    cen: {
-        //flex: 4,
-        justifyContent: 'center',
-        alignItems: 'center',
+
+    title: { 
+        fontSize: 40,
+        fontWeight: 'bold',
+        paddingBottom: 30,
+    },
+
+    button: { 
+        fontSize: 19,
+        marginBottom: 300,
+        borderRadius: 27,
+        paddingTop: 13,
+        paddingBottom: 13,
+        marginRight: 67,
+        marginLeft: 30,
+        textAlign: 'center',
+        borderWidth: 1,
+        borderColor: 'black',
     },
 });
 

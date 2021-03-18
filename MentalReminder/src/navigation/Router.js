@@ -4,6 +4,7 @@ import { createStackNavigator } from "@react-navigation/stack";
 import HomeScreen from "./../screens/Home";
 import ProfileScreen from "./../screens/Profile";
 import MenuScreen from "./../screens/Menu/index";
+import Home from "./../screens/Home/index";
 import HomeTabNavigator from "./HomeTabNavigator";
 import { View, ActivityIndicator } from 'react-native';
 import { createDrawerNavigator } from '@react-navigation/drawer';
@@ -23,6 +24,7 @@ import PreferenceScreen from './../screens/Drawer/PreferenceScreen';
 const Stack = createStackNavigator();
 const Drawer = createDrawerNavigator();
 const HomeStack = createStackNavigator();
+const MenuStack = createStackNavigator();
 
 const HomeStackScreen = ({navigation}) => (
     <HomeStack.Navigator screenOptions={{
@@ -52,6 +54,22 @@ const HomeStackScreen = ({navigation}) => (
 //     </AboutStack.Navigator>
 // );
 
+function MainScreen() {
+    return(
+        <MenuStack.Navigator>
+            <MenuStack.Screen component={Home} />
+        </MenuStack.Navigator>
+    )
+}
+
+function Menu(){
+    return(
+        <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+            <Drawer.Screen component={MenuScreen} />
+        </Drawer.Navigator>
+    )
+}
+
 function Preset() {
     return (
         <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
@@ -74,14 +92,16 @@ function EditDefault(){
     )
 }
 
-function Default(){
-    return(
-    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
-        <Drawer.Screen name="Edit Default" component={DefaultScreen} />
-        {/* <Drawer.Screen name="Edit Default" component={DefaultScreen} /> */}
-    </Drawer.Navigator>
-    )
-}
+// function Default(){
+//     return(
+//     <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+//         <Drawer.Screen name="Edit Default" component={DefaultScreen} />
+//         {/* <Drawer.Screen name="Edit Default" component={DefaultScreen} /> */}
+//     </Drawer.Navigator>
+//     )
+// }
+
+
 
 function ChangeInfo(){
     return(
@@ -99,13 +119,13 @@ function ChangePreference(){
     )
 }
 
-function AboutApp(){
-    return(
-    <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
-        <Drawer.Screen name="About App" component={AboutScreen} />
-    </Drawer.Navigator>
-    )
-}
+// function AboutApp(){
+//     return(
+//     <Drawer.Navigator menuContent={props => <MenuScreen {...props} />}>
+//         <Drawer.Screen name="About App" component={AboutScreen} />
+//     </Drawer.Navigator>
+//     )
+// }
 
 const Router = (props) => { 
     return (
@@ -113,9 +133,9 @@ const Router = (props) => {
             <Stack.Navigator>
                 <Stack.Screen name={"Home"} component={HomeTabNavigator} options={{ headerShown: false}}/>
                 <Stack.Screen name={"Preset"} component={Preset}/>
-                <Stack.Screen name={"EditDefault"} component={Default}/>
-                <Stack.Screen name={"User Info"} component={ChangeInfo}/>
-                <Stack.Screen name={"Preference"} component={ChangePreference}/>
+                <Stack.Screen name={"EditDefault"} component={EditDefault}/>
+                {/*<Stack.Screen name={"User Info"} component={EditDefault}/>
+                <Stack.Screen name={"Preference"} component={EditDefault}/> */}
                 <Stack.Screen name={"About App"} component={EditDefault}/> 
             </Stack.Navigator>
             

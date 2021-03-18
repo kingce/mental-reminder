@@ -50,7 +50,7 @@ const styles = StyleSheet.create({
 
     time: { 
         marginTop: 30,
-        marginBottom: 300
+        marginBottom: 30
     },
 
 
@@ -69,6 +69,11 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderWidth: 1,
         borderColor: 'black',
+    },
+
+    notes: {
+        fontSize: 19,
+        paddingBottom: 30
     }
 
 
