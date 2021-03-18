@@ -3,15 +3,18 @@ export default [
         id: '0',
         icon: 'faCoffee',
         name: 'Meditate',
-        dueAt: '3:00',
-        ampm: 'PM',
+        time: '3:00 PM',
     },
     {
         id: '1',
         icon: 'faCoffee',
         name: 'HW Due',
-        dueAt: '12:00',
-        ampm: 'PM',
-
-    }
+        time: '12:00 AM',
+    },
+    {
+        id:'2',
+        icon: 'faCoffee',
+        name: 'Pass your class',
+        time: '3:00 AM'
+    },
 ]

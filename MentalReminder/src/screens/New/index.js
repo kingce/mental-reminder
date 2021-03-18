@@ -9,7 +9,7 @@ import styles from './styles';
 const NewScreen = (props) => { 
 
     const [text, setText] = useState('');
-
+    const [name, setName] = useState('');
     const [date, setDate] = useState(new Date(1598051730000));
     const [mode, setMode] = useState('time');
 
@@ -18,14 +18,22 @@ const NewScreen = (props) => {
         Alert.alert('current date is ' + currentDate);
     }
 
-    const setReminderName = () => { 
-        Alert.alert('Name set to drink coffee');
+    const setReminderName = (str) => { 
+        setName(str);
+        Alert.alert('Name set to: ' + str);
     }
 
     const addNewReminder = () => { 
-        Alert.alert('name is ' + text + ' and the date is ' + date);
+        if(text == '') { 
+            Alert.alert('name is ' + name + ' and the date is ' + date);
+        } else { 
+            Alert.alert("hehe hidden path: " + text);
+        }
     }
 
+    const setReminderCustom = (text) => { 
+        setText(text);
+    }
 
     return ( 
         <View>
@@ -40,30 +48,36 @@ const NewScreen = (props) => {
             <Text style={styles.p}>What do you want to remember?</Text>
             <View style={styles.presetBlock}>
                 <View style={styles.preset}>
-                    <TouchableOpacity onPress={setReminderName}>
-                    <Text>
-                        <FontAwesomeIcon icon={ faCoffee } size={35} color="black" style={styles.presetIcon} />
-                        <Text style={styles.presetText}>   Drink coffee</Text>
-                    </Text>
-                    </TouchableOpacity>
-                </View>
-                <View style={styles.preset}>
+                    <TouchableOpacity onPress={() => setReminderName("Drink water")}>
                     <Text>
                         <FontAwesomeIcon icon={ faCoffee } size={35} color="black" style={styles.presetIcon} />
                         <Text style={styles.presetText}>   Drink water</Text>
                     </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.preset}>
+                    <TouchableOpacity onPress={() => setReminderName("Water plants")}>
+                    <Text>
+                        <FontAwesomeIcon icon={ faCoffee } size={35} color="black" style={styles.presetIcon} />
+                        <Text style={styles.presetText}>   Water plants</Text>
+                    </Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.preset}>
+                    <TouchableOpacity onPress={() => setReminderName("HW due")}>
                     <Text>
                         <FontAwesomeIcon icon={ faBriefcase } size={35} color="black" style={styles.presetIcon} />
                         <Text style={styles.presetText}>   HW due</Text>
                     </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.preset}>
+                    <TouchableOpacity onPress={() => setReminderName("Meditate")}>
                     <Text>
                         <FontAwesomeIcon icon={ faSpa } size={35} color="black" style={styles.presetIcon} />
                         <Text style={styles.presetText}>   Meditate</Text>
                     </Text>
+                    </TouchableOpacity>
                 </View>
                 <View style={styles.customPreset}>
                     <Text>
@@ -75,6 +89,7 @@ const NewScreen = (props) => {
                         maxLength={30}
                         style={{ marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', borderWidth: 1, width: 230 }}
                         placeholder="Custom preset"
+                        onChangeText={(text) => setReminderCustom(text)}
                     />
                 </View>
             </View>
@@ -90,7 +105,6 @@ const NewScreen = (props) => {
                     onChange={onTimeChange}
                 />
             </View>
-
             
 
             <View style={styles.submit}>
@@ -100,9 +114,7 @@ const NewScreen = (props) => {
             </View>
 
 
-
         </ScrollView>
-
         </View>
     );
 };
