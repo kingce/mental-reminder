@@ -29,10 +29,21 @@ const NewScreen = (props) => {
         } else { 
             Alert.alert("hehe hidden path: " + text);
         }
+        props.navigation.navigate('Home', {
+            screen: 'Home'})
     }
 
     const setReminderCustom = (text) => { 
         setText(text);
+    }
+
+    const addNote = () => {
+        <TextInput style={{marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', borderWidth: 1, width: 230 }}
+            {...props}
+            editable
+            name = "Notes"
+            placeholder = "Add Notes"
+        />
     }
 
     return ( 
@@ -106,7 +117,17 @@ const NewScreen = (props) => {
                 />
             </View>
             
-
+            <View style={styles.times}>
+                <Text style={styles.p}>Add Note / Description {"\n"}</Text>
+                <TextInput style={{marginLeft: 17, paddingLeft: 5, height: 30, borderColor: 'gray', width: 230 }}
+                    {...props}
+                    editable
+                    name = "Notes"
+                    placeholder = "Add Notes"
+                />
+                <Text style={styles.notes}></Text>
+            </View>
+            
             <View style={styles.submit}>
                 <TouchableOpacity onPress={addNewReminder}>
                     <Text style={styles.button}>Add New Reminder</Text>
