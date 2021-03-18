@@ -42,7 +42,7 @@ const NewScreen = (props) => {
 
         //Alert.alert('name is ' + text + ' and the date is ' + date);  
      
-    }
+    
 
     const newItem = (text, date) => {
         db.transaction(tx => {
